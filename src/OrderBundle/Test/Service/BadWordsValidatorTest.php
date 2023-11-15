@@ -26,7 +26,7 @@ class BadWordsValidatorTest extends TestCase
         $this->assertEquals($foundBadWords, $hasBadWords);
     }
 
-    public function badWordsDataProvider()
+    public static function badWordsDataProvider()
     {
         return [
             'shouldFindWhenHasBadWords' => [
