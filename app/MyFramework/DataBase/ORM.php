@@ -14,14 +14,17 @@ class ORM
         $this->db = $dataBase;
     }
 
-    public function findAll()
+    public function findAll($table)
     {
-        // find implementation
+        $result = $this->db->query("SELECT * FROM $table")->fetchAll();
+        return $result;
     }
 
-    public function findByID($id)
+    public function findByID($table, $id)
     {
-        // find implementation
+        $primaryKeyColumn = $this->db->query("SHOW KEYS FROM $table")->fetchAll()[0]['Column_name'];
+
+        $result = $this->db->query("SELECT * FROM $table WHERE $primaryKeyColumn = $id")->fetchAll();
     }
 
     public function persist($object)

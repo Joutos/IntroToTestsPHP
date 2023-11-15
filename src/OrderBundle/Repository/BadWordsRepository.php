@@ -9,6 +9,6 @@ class BadWordsRepository extends ORM implements BadWordsRepositoryInterface
 {
     public function findAllAsArray()
     {
-        return parent::findAll();
+        return parent::findAll('fornecedores');
     }
 }
